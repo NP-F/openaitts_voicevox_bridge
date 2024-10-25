@@ -1,0 +1,7 @@
+/.vscode/
+/dist
+/venv
+/__pycache__
+
+*.mp3
+*.wav
