@@ -25,6 +25,15 @@ from re import split
 config = ConfigParser()
 config.read("./config.ini")
 
+voice_map = {
+    "alloy": config["ALTID"]["ALLOY"],
+    "echo": config["ALTID"]["ECHO"],
+    "fable": config["ALTID"]["FABLE"],
+    "onyx": config["ALTID"]["ONYX"],
+    "nova": config["ALTID"]["NOVA"],
+    "shimmer": config["ALTID"]["SHIMMER"],
+}
+
 basicConfig(level=0, format="%(levelname)s: %(message)s")
 
 
@@ -67,24 +76,14 @@ def voicevox_api_runner(input, voice):
 
 
 def voicevox_api(input, voice):
-    # switch-case文が恋しい
-    if is_int(voice):
-        return voicevox_api_runner(input, voice)
-    elif voice == "alloy":
-        return voicevox_api_runner(input, config["ALTID"]["ALLOY"])
-    elif voice == "echo":
-        return voicevox_api_runner(input, config["ALTID"]["ECHO"])
-    elif voice == "fable":
-        return voicevox_api_runner(input, config["ALTID"]["FABLE"])
-    elif voice == "onyx":
-        return voicevox_api_runner(input, config["ALTID"]["ONYX"])
-    elif voice == "nova":
-        return voicevox_api_runner(input, config["ALTID"]["NOVA"])
-    elif voice == "shimmer":
-        return voicevox_api_runner(input, config["ALTID"]["SHIMMER"])
-    else:
-        # IDでも上記のでもないときはこっち
-        return voicevox_api_runner(input, config["ALTID"]["DEFAULT_SPEAKER"])
+    return voicevox_api_runner(
+        input,
+        (
+            voice_map.get(voice, config["ALTID"]["DEFAULT_SPEAKER"])
+            if not is_int(voice)
+            else voice
+        ),
+    )
 
 
 def ifrm(path):
