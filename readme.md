@@ -18,6 +18,8 @@ APIさえ叩ければVOICEVOXはDockerのコンテナ等でも可です。
 
 直感的に動かせる設計にしてるので、敢えて読まなくても良いと思います。  
 
+まずは、要求物をインストールします。上に書いてあるやつです。Pythonとffmpegはパスを通すのをお忘れなく。
+
 VOICEVOXを起動した後に、`openwebui2voicevox_api_bridge.py`を実行してください。
 
 ```sh
