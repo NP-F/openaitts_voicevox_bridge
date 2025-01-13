@@ -12,7 +12,7 @@
 |Python|3.10を推奨|
 
 APIさえ叩ければVOICEVOXはDockerのコンテナ等でも可です。  
-また、VOICEVOX互換なら本家VOICEVOX以外の読み上げソフトでも動くと思い08:08 AMます。
+また、VOICEVOX互換なら本家VOICEVOX以外の読み上げソフトでも動くと思います。
 
 ## 使い方
 
